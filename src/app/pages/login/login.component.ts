@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-  jsonIn = {
-    username: '',
-    password: '',
-    rememberMe: false,
-  }
+  export class LoginComponent {
+    jsonIn = {
+      username: '',
+      password: '',
+      rememberMe: false,
+    }
   @ViewChild('loginForm') loginForm!: NgForm;
   showErrors = false;
   showPassword = false;
