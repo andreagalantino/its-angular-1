@@ -1,1 +1,12 @@
-HOME
+<div *ngFor="let drink of drinks" [routerLink]="'/drink/' + drink.idDrink" style="width: 18rem;">
+    <div class="card" >
+        <img class="card-img-top" [src]=drink.strDrinkThumb alt="Card image cap">
+        <div class="card-body">
+            <!-- Title Cocktail -->
+            <h5 class="card-title">{{drink.strDrink}}</h5>
+            <!-- Description Cocktail -->
+            <p class="card-text">{{drink.strInstructions}}</p> 
+            <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+</div>

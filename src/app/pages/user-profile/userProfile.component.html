@@ -1,5 +1,5 @@
 <main class="form-signin w-100 m-auto mt-3">
-  <form class="">
+  <form class="needs-validation" novalidate>
     <div class="row">
       <div class="col">
         <input type="radio" name="exampleRadios" id="exampleRadios1" value="pf" [(ngModel)]="jsonIn.typePerson" />
@@ -12,87 +12,111 @@
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="inputIva" placeholder="iva" *ngIf="jsonIn.typePerson === 'pg' "
-        required />
+        [(ngModel)]="jsonIn.IVA" required />
       <label for="inputIva">IVA</label>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="inputRagioneSociale" placeholder="ragioneSociale"
-        *ngIf="jsonIn.typePerson === 'pg' " required />
+        [(ngModel)]="jsonIn.RagioneSociale" *ngIf="jsonIn.typePerson === 'pg' " required />
       <label for="inputRagioneSociale">Ragione Sociale</label>
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="inputName" placeholder="Name" *ngIf="jsonIn.typePerson === 'pf' "
-        required />
+        [(ngModel)]="jsonIn.name" required />
       <label for="inputName">Name</label>
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="inputLastName" placeholder="Enter Last Name"
-        *ngIf="jsonIn.typePerson === 'pf' " required />
+        *ngIf="jsonIn.typePerson === 'pf' " [(ngModel)]="jsonIn.lastName" required />
       <label for="inputLastName">Last Name</label>
     </div>
     <div class="form-floating">
       <input type="text" class="form-control" id="inputCodiceFiscale" placeholder="codiceFiscale" pattern=""
-        *ngIf="jsonIn.typePerson === 'pf' " required />
+        *ngIf="jsonIn.typePerson === 'pf' " [(ngModel)]="jsonIn.codiceFiscale" required />
       <label for="inputCodiceFiscale">Codice Fiscale</label>
     </div>
     <div class="form-floating">
-      <input type="email" class="form-control" id="inputEmail" placeholder="Enter Last Name" required />
+      <input type="email" class="form-control" id="inputEmail" placeholder="Enter Last Name" [(ngModel)]="jsonIn.email"
+        required />
       <label for="inputEmail">Email</label>
     </div>
     <div class="form-floating">
-      <input type="number" class="form-control" id="inputTelephone" placeholder="Enter Telephone" required />
+      <input type="number" class="form-control" id="inputTelephone" placeholder="Enter Telephone"
+        [(ngModel)]="jsonIn.telephoneNumber" required />
       <label for="inputTelephone">Telephone Number</label>
     </div>
     <div class="form-floating">
-      <input type="number" class="form-control" id="inputFax" placeholder="Enter FAX" required />
+      <input type="number" class="form-control" id="inputFax" placeholder="Enter FAX" [(ngModel)]="jsonIn.fax"
+        required />
       <label for="inputFax">FAX</label>
     </div>
     <div class="form-floating">
-      <input type="date" class="form-control" id="inputBirthday" placeholder="" required />
+      <input type="date" class="form-control" id="inputBirthday" placeholder="" [(ngModel)]="jsonIn.birthday"
+        required />
       <label for="inputBirthday">Birthday</label>
     </div>
     <div class="row">
       <div class="col">
-        <input type="radio" name="male" id="male" value="option1" />
+        <input type="radio" name="male" id="male" value="option1" [(ngModel)]="jsonIn.sex" />
         <label class="ms-2" for="male"> M </label>
       </div>
       <div class="col">
-        <input type="radio" name="female" id="female" value="option2" />
+        <input type="radio" name="female" id="female" value="option2" [(ngModel)]="jsonIn.sex" />
         <label class="ms-2" for="female"> F </label>
       </div>
     </div>
     <div class="input-group">
       <div class="form-floating col-6">
-        <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address" required />
+        <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address"
+          [(ngModel)]="jsonIn.address" required />
         <label class="" for="inputBirthday">Address</label>
       </div>
       <div class="form-floating col-4">
         <input type="text" class="form-control" id="inputCivicNumber" placeholder="Ex 1" pattern="[0-9]{3}"
-          title="Three Number" required />
+          [(ngModel)]="jsonIn.nCivic" title="Three Number" required />
         <label for="inputBirthday">N° Civic</label>
       </div>
       <div class="form-floating col-2">
         <input type="" class="form-control" id="inputCap" placeholder="10130" pattern="[0-9]{5}" title="Five Number"
-          required />
+          [(ngModel)]="jsonIn.cap" required />
         <label for="inputBirthday">CAP</label>
       </div>
     </div>
     <div class="form-floating">
 
-      <input type="text" class="form-control" id="inputState" placeholder="Ex. Italy" required />
+      <input type="text" class="form-control" id="inputState" placeholder="Ex. Italy" [(ngModel)]="jsonIn.state"
+        required />
       <label for="inputState">State</label>
     </div>
     <div class="form-floating">
-      <input type="text" class="form-control" id="inputCity" placeholder="Ex. Turin" required />
+      <input type="text" class="form-control" id="inputCity" placeholder="Ex. Turin" [(ngModel)]="jsonIn.city"
+        required />
       <label for="inputCity">City</label>
 
     </div>
     <div class="form-floating">
-      <input type="text" class="form-control" id="inputProvince" placeholder="Ex. Turin" required />
+      <input type="text" class="form-control" id="inputProvince" placeholder="Ex. Turin" [(ngModel)]="jsonIn.province"
+        required />
       <label for="inputProvince">Province</label>
 
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-floating mt-2">
+      <div class="input-group mb-3">
+        <div class="form-floating">
+          <input [type]="showPassword ? 'text' : 'password'" class="form-control mb-0" id="passwordInput" email
+            name="passwordInput" placeholder="your password..." required />
+          <label for="passwordInput">Password</label>
+        </div>
+        <span class="input-group-text" role="button" (click)="showPassword = !showPassword">
+          👁
+        </span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="signIn()">Submit</button>
   </form>
 </main>
